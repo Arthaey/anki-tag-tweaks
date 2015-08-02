@@ -13,6 +13,7 @@ FEATURES = {
 
 # TODO
 
+- use the configured separator for HierarchicalTags, not "::"
 - right-click on tag to rename it
 - right-click on tag to delete it
 - UI for users to configure addon without editing the code
