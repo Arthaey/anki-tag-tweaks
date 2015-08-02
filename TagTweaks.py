@@ -4,7 +4,6 @@
 from anki.hooks import wrap
 from anki.lang import _
 from aqt.browser import Browser
-from hierarchical_tags_addon import hierarchical_tags
 from PyQt4.QtCore import Qt
 
 import pprint, sys # DELETE
