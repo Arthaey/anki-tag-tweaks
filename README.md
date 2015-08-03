@@ -28,6 +28,9 @@ Post a [new issue on Github](https://github.com/Arthaey/anki-tag-tweaks/issues/n
 You can also write a review or ask questions on the
 [Anki website for shared add-ons](https://ankiweb.net/shared/info/1384323610).
 
+[My other Anki add-ons](https://github.com/search?q=user%3AArthaey+anki)
+are also on Github.
+
 This addon is licensed under the same license as Anki itself (GNU Affero
 General Public License 3).
 
