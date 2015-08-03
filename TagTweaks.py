@@ -1,5 +1,7 @@
 # See github page to report issues or to contribute:
 # https://github.com/Arthaey/anki-tag-tweaks
+#
+# Also available for Anki at https://ankiweb.net/shared/info/1384323610
 
 from anki.hooks import wrap
 from anki.lang import _

@@ -25,6 +25,9 @@ add-on installed.
 Post a [new issue on Github](https://github.com/Arthaey/anki-tag-tweaks/issues/new)
 (or make a pull request!).
 
+You can also write a review or ask questions on the
+[Anki website for shared add-ons](https://ankiweb.net/shared/info/1384323610).
+
 This addon is licensed under the same license as Anki itself (GNU Affero
 General Public License 3).
 
