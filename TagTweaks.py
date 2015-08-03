@@ -20,8 +20,10 @@ FEATURES = {
 }
 
 def _collapseSearchesByDefault(self, root):
-    searches = root.findItems(_("My Searches"), Qt.MatchFixedString)[0]
-    root.collapseItem(searches)
+    match = root.findItems(_("My Searches"), Qt.MatchFixedString)
+    if match:
+        searches = match[0]
+        root.collapseItem(searches)
 
 def _expandTagsByDefault(self, root):
    root.expandAll()
