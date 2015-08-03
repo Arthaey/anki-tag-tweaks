@@ -17,15 +17,13 @@ FEATURES = {
 }
 
 def _collapseSearchesByDefault(self, root):
-    if FEATURES["collapseSearchesByDefault"]:
-        searches = root.findItems(_("My Searches"), Qt.MatchFixedString)[0]
-        root.collapseItem(searches)
+    searches = root.findItems(_("My Searches"), Qt.MatchFixedString)[0]
+    root.collapseItem(searches)
 
 def _expandTagsByDefault(self, root):
-   if FEATURES["expandTagsByDefault"]:
-       root.expandAll()
-        # It's a pain to fully expand each tag, so just re-collapse if needed.
-       _collapseSearchesByDefault(self, root)
+   root.expandAll()
+    # It's a pain to fully expand each tag, so just re-collapse if needed.
+   _collapseSearchesByDefault(self, root)
 
 #def _rightClickToRename(self, root):
 #    if FEATURES["rightClickToRename"]:
@@ -36,7 +34,8 @@ def _expandTagsByDefault(self, root):
 #        # TO IMPLEMENT
 
 
-Browser._favTree = wrap(Browser._favTree, _collapseSearchesByDefault, "after")
+if FEATURES["collapseSearchesByDefault"]:
+    Browser._favTree = wrap(Browser._favTree, _collapseSearchesByDefault, "after")
 
 # This HAPPENS to work because "TagTweaks" is alphabetically after
 # "HierarchicalTags" and os.listdir usually(?) returns the directory listing in
@@ -50,4 +49,5 @@ Browser._favTree = wrap(Browser._favTree, _collapseSearchesByDefault, "after")
 # So, the conclusion is to ensure this filename comes after HierarchicalTags's
 # and to cross my fingers. :(
 #
-Browser._userTagTree = wrap(Browser._userTagTree, _expandTagsByDefault, "after")
+if FEATURES["expandTagsByDefault"]:
+    Browser._userTagTree = wrap(Browser._userTagTree, _expandTagsByDefault, "after")
