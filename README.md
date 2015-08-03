@@ -1,21 +1,40 @@
 # Description
 
-An Anki add-on to slightly modify how the browse window handles tags. (Note: this
-add-on assumes you also have the HierarchicalTags add-on installed.)
+An Anki add-on to slightly modify how the browse window handles tags.
 
-```python
-FEATURES = {
-    "collapseSearchesByDefault": True,
-    "expandTagsByDefault": True,
-    "refreshTagListAfterDeletingTag": True,
-    "rightClickToRename": True,
-    "rightClickToDelete": True,
-}
-```
+## Available Features
+
+- **expandTagsByDefault:** Displays all your hierarchical tags by default.
+- **collapseSearchesByDefault:** Useful if you have your searches "duplicated"
+  as filtered decks too, or if you just want searches to be hidden be default.
+- **refreshTagListAfterDeletingTag** After you click the "Remove Tags" button
+  in the browse window, the tag list will refresh itself to show that the tag
+  was successfully removed.
+
+# Requirements
+
+To enable or disable features, you must edit the source code. You can find this
+from the Anki menu *Tools &gt; Add-ons &gt; TagTweaks &gt; Edit..*.
+
+This add-on assumes you also have the
+[Hierarchical Tags](https://ankiweb.net/shared/info/1089921461)
+add-on installed.
+
+# Support
+
+Post a [new issue on Github](https://github.com/Arthaey/anki-tag-tweaks/issues/new)
+(or make a pull request!).
+
+This addon is licensed under the same license as Anki itself (GNU Affero
+General Public License 3).
 
 # TODO
 
 - use the configured separator for HierarchicalTags, not "::"
-- right-click on tag to rename it
-- right-click on tag to delete it
+- right-click on tag to rename or delete it
 - UI for users to configure add-on without editing the code
+
+# License
+
+This addon is licensed under the same license as Anki itself (GNU Affero General
+Public License 3).

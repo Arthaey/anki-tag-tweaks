@@ -5,14 +5,15 @@ from anki.hooks import wrap
 from anki.lang import _
 from anki.tags import TagManager
 from aqt.browser import Browser
+from aqt.utils import showInfo
 from PyQt4.QtCore import Qt
 
 FEATURES = {
     "collapseSearchesByDefault": True,
     "expandTagsByDefault": True,
     "refreshTagListAfterDeletingTag": True,
-    "rightClickToRename": True,
-    "rightClickToDelete": True,
+    "rightClickToRename": False, # TO BE IMPLEMENTED
+    "rightClickToDelete": False, # TO BE IMPLEMENTED
 }
 
 def _collapseSearchesByDefault(self, root):
@@ -27,19 +28,24 @@ def _expandTagsByDefault(self, root):
 def _refreshTagListAfterDeletingTag(self, ids, tags, add=True):
     self.col.fixIntegrity()
 
-#def _rightClickToRename(self, root):
-#    if FEATURES["rightClickToRename"]:
-#        # TO IMPLEMENT
+def _rightClickToRename(self, root):
+    showInfo("This feature has not been implemented yet.")
 
-#def _rightClickToDelete(self, root):
-#    if FEATURES["rightClickToDelete"]:
-#        # TO IMPLEMENT
+def _rightClickToDelete(self, root):
+    showInfo("This feature has not been implemented yet.")
+
 
 if FEATURES["refreshTagListAfterDeletingTag"]:
     TagManager.bulkAdd = wrap(TagManager.bulkAdd, _refreshTagListAfterDeletingTag, "after")
 
 if FEATURES["collapseSearchesByDefault"]:
     Browser._favTree = wrap(Browser._favTree, _collapseSearchesByDefault, "after")
+
+if FEATURES["rightClickToRename"]:
+    Browser._userTagTree = wrap(Browser._userTagTree, _rightClickToRename, "after")
+
+if FEATURES["rightClickToDelete"]:
+    Browser._userTagTree = wrap(Browser._userTagTree, _rightClickToDelete, "after")
 
 # This HAPPENS to work because "TagTweaks" is alphabetically after
 # "HierarchicalTags" and os.listdir usually(?) returns the directory listing in
