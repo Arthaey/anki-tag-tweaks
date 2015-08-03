@@ -3,15 +3,14 @@
 
 from anki.hooks import wrap
 from anki.lang import _
+from anki.tags import TagManager
 from aqt.browser import Browser
 from PyQt4.QtCore import Qt
-
-import pprint, sys # DELETE
-pp = pprint.PrettyPrinter(indent = 2, stream=sys.stderr) # DELETE
 
 FEATURES = {
     "collapseSearchesByDefault": True,
     "expandTagsByDefault": True,
+    "refreshTagListAfterDeletingTag": True,
     "rightClickToRename": True,
     "rightClickToDelete": True,
 }
@@ -25,6 +24,9 @@ def _expandTagsByDefault(self, root):
     # It's a pain to fully expand each tag, so just re-collapse if needed.
    _collapseSearchesByDefault(self, root)
 
+def _refreshTagListAfterDeletingTag(self, ids, tags, add=True):
+    self.col.fixIntegrity()
+
 #def _rightClickToRename(self, root):
 #    if FEATURES["rightClickToRename"]:
 #        # TO IMPLEMENT
@@ -33,6 +35,8 @@ def _expandTagsByDefault(self, root):
 #    if FEATURES["rightClickToDelete"]:
 #        # TO IMPLEMENT
 
+if FEATURES["refreshTagListAfterDeletingTag"]:
+    TagManager.bulkAdd = wrap(TagManager.bulkAdd, _refreshTagListAfterDeletingTag, "after")
 
 if FEATURES["collapseSearchesByDefault"]:
     Browser._favTree = wrap(Browser._favTree, _collapseSearchesByDefault, "after")
