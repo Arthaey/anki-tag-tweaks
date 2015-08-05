@@ -1,5 +1,7 @@
 # Description
 
+**Anki download ID: `1384323610`**
+
 An Anki add-on to slightly modify how the browse window handles tags.
 
 ## Available Features
