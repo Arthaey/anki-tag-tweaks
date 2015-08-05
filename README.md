@@ -29,9 +29,6 @@ Post a [new issue on Github](https://github.com/Arthaey/anki-tag-tweaks/issues/n
 [My other Anki add-ons](https://github.com/search?q=user%3AArthaey+anki)
 are also on Github.
 
-This addon is licensed under the same license as Anki itself (GNU Affero
-General Public License 3).
-
 # TODO
 
 - use the configured separator for HierarchicalTags, not "::"
